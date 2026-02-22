@@ -15,7 +15,7 @@
   <!-- Fonts -->
   <link href="https://fonts.googleapis.com" rel="preconnect">
   <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Poppins:wght@400;500;600;700&family=Raleway:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Poppins:wght@400;500;600;700&family=Raleway:wght@400;500;600;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
 
   <!-- Vendor CSS Files -->
   <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -24,6 +24,268 @@
 
   <!-- Main CSS File -->
   <link href="assets/css/main.css" rel="stylesheet">
+
+  <!-- Intro Animation Styles -->
+  <style>
+    /* Intro Animation Container */
+    #intro-animation {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(ellipse at center, #0a1628 0%, #020810 100%);
+      z-index: 999999;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+      transition: opacity 0.8s ease, visibility 0.8s ease;
+    }
+    
+    #intro-animation.fade-out {
+      opacity: 0;
+      visibility: hidden;
+    }
+    
+    /* Stars Background */
+    .stars {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+    }
+    
+    .star {
+      position: absolute;
+      background: #fff;
+      border-radius: 50%;
+      animation: twinkle 2s infinite ease-in-out;
+    }
+    
+    @keyframes twinkle {
+      0%, 100% { opacity: 0.3; transform: scale(1); }
+      50% { opacity: 1; transform: scale(1.2); }
+    }
+    
+    /* Earth Container */
+    .earth-container {
+      position: relative;
+      width: 280px;
+      height: 280px;
+      margin-bottom: 40px;
+    }
+    
+    /* Earth Globe */
+    .earth {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      background: 
+        radial-gradient(circle at 30% 30%, rgba(255,255,255,0.1) 0%, transparent 50%),
+        linear-gradient(45deg, #1a5f7a 0%, #0d3b4c 25%, #134e5e 50%, #0a3d62 75%, #1a5f7a 100%);
+      box-shadow: 
+        inset -30px -30px 60px rgba(0,0,0,0.5),
+        inset 10px 10px 40px rgba(255,255,255,0.1),
+        0 0 60px rgba(59, 130, 246, 0.3),
+        0 0 120px rgba(59, 130, 246, 0.1);
+      animation: rotate-earth 20s linear infinite;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    /* Continents overlay */
+    .earth::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 200%;
+      height: 100%;
+      background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 100'%3E%3Cpath fill='%232d7d46' opacity='0.6' d='M20,30 Q30,20 40,30 T60,25 Q70,35 65,45 Q55,50 45,45 Q35,40 20,30 M80,20 Q90,15 100,20 Q110,25 105,35 Q95,40 85,35 Q75,25 80,20 M140,40 Q150,35 160,42 Q165,50 155,55 Q145,52 140,40 M30,60 Q45,55 55,65 Q50,75 35,70 Q25,65 30,60 M120,60 Q135,55 145,65 Q150,75 140,80 Q125,78 115,70 Q110,62 120,60'/%3E%3C/svg%3E") repeat-x;
+      background-size: 100% 100%;
+      animation: move-continents 20s linear infinite;
+    }
+    
+    /* Grid lines on Earth */
+    .earth::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      background: 
+        repeating-linear-gradient(0deg, transparent, transparent 18px, rgba(59, 130, 246, 0.15) 18px, rgba(59, 130, 246, 0.15) 20px),
+        repeating-linear-gradient(90deg, transparent, transparent 18px, rgba(59, 130, 246, 0.15) 18px, rgba(59, 130, 246, 0.15) 20px);
+      animation: rotate-grid 30s linear infinite reverse;
+    }
+    
+    @keyframes rotate-earth {
+      from { transform: rotateY(0deg); }
+      to { transform: rotateY(360deg); }
+    }
+    
+    @keyframes move-continents {
+      from { transform: translateX(0); }
+      to { transform: translateX(-50%); }
+    }
+    
+    @keyframes rotate-grid {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+    
+    /* Orbit ring */
+    .orbit {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 350px;
+      height: 350px;
+      margin: -175px 0 0 -175px;
+      border: 1px solid rgba(59, 130, 246, 0.3);
+      border-radius: 50%;
+      animation: rotate-orbit 15s linear infinite;
+    }
+    
+    .orbit::before {
+      content: '';
+      position: absolute;
+      top: -4px;
+      left: 50%;
+      width: 8px;
+      height: 8px;
+      background: #3b82f6;
+      border-radius: 50%;
+      box-shadow: 0 0 10px #3b82f6, 0 0 20px #3b82f6;
+    }
+    
+    @keyframes rotate-orbit {
+      from { transform: rotateX(60deg) rotateZ(0deg); }
+      to { transform: rotateX(60deg) rotateZ(360deg); }
+    }
+    
+    /* Code rain effect */
+    .code-rain {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      overflow: hidden;
+    }
+    
+    .code-line {
+      position: absolute;
+      font-family: 'Fira Code', monospace;
+      font-size: 12px;
+      color: rgba(59, 130, 246, 0.6);
+      white-space: nowrap;
+      animation: fall-code 8s linear infinite;
+      text-shadow: 0 0 5px rgba(59, 130, 246, 0.5);
+    }
+    
+    @keyframes fall-code {
+      0% { transform: translateY(-100%); opacity: 0; }
+      10% { opacity: 1; }
+      90% { opacity: 1; }
+      100% { transform: translateY(100vh); opacity: 0; }
+    }
+    
+    /* Coordinates display */
+    .coordinates {
+      position: absolute;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-family: 'Fira Code', monospace;
+      font-size: 14px;
+      color: rgba(59, 130, 246, 0.8);
+      text-shadow: 0 0 10px rgba(59, 130, 246, 0.5);
+    }
+    
+    /* Text content */
+    .intro-text {
+      text-align: center;
+      z-index: 10;
+    }
+    
+    .intro-text h1 {
+      font-family: 'Poppins', sans-serif;
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: #fff;
+      margin: 0;
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fade-in-up 1s ease forwards 1.5s;
+      text-shadow: 0 0 20px rgba(59, 130, 246, 0.5);
+    }
+    
+    .intro-text p {
+      font-family: 'Fira Code', monospace;
+      font-size: 1rem;
+      color: #3fbbc0;
+      margin-top: 10px;
+      opacity: 0;
+      animation: fade-in-up 1s ease forwards 2s;
+    }
+    
+    .intro-text .typing-text {
+      display: inline-block;
+      overflow: hidden;
+      border-right: 2px solid #3fbbc0;
+      white-space: nowrap;
+      animation: typing 2s steps(20) forwards 2.2s, blink-caret 0.75s step-end infinite;
+      width: 0;
+    }
+    
+    @keyframes fade-in-up {
+      to { opacity: 1; transform: translateY(0); }
+    }
+    
+    @keyframes typing {
+      from { width: 0; }
+      to { width: 100%; }
+    }
+    
+    @keyframes blink-caret {
+      from, to { border-color: transparent; }
+      50% { border-color: #3fbbc0; }
+    }
+    
+    /* Loading bar */
+    .loading-bar {
+      width: 200px;
+      height: 3px;
+      background: rgba(255,255,255,0.1);
+      border-radius: 3px;
+      margin-top: 30px;
+      overflow: hidden;
+      opacity: 0;
+      animation: fade-in-up 0.5s ease forwards 2.5s;
+    }
+    
+    .loading-bar::after {
+      content: '';
+      display: block;
+      width: 0%;
+      height: 100%;
+      background: linear-gradient(90deg, #3b82f6, #3fbbc0);
+      border-radius: 3px;
+      animation: loading 1.5s ease forwards 2.8s;
+    }
+    
+    @keyframes loading {
+      to { width: 100%; }
+    }
+  </style>
 
   <!-- Google Translate -->
   <style>
@@ -76,6 +338,27 @@
 </head>
 
 <body class="index-page">
+
+  <!-- Intro Animation -->
+  <div id="intro-animation">
+    <!-- Stars -->
+    <div class="stars" id="stars"></div>
+    
+    <!-- Code Rain -->
+    <div class="code-rain" id="code-rain"></div>
+    
+    <!-- Coordinates -->
+    <div class="coordinates" id="coordinates">
+      LAT: 49.0350° N | LON: 2.0780° E
+    </div>
+    
+    <!-- Text -->
+    <div class="intro-text">
+      <h1>SEWEDO GNANSOUNOU</h1>
+      <p><span class="typing-text">Géomaticien & Développeur SIG</span></p>
+      <div class="loading-bar"></div>
+    </div>
+  </div>
 
   <!-- Google Translate Element -->
   <div id="google_translate_element" style="display:none;"></div>
@@ -237,6 +520,91 @@
     }
   </script>
   <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+  <!-- Intro Animation Script -->
+  <script>
+    (function() {
+      // Hide default preloader
+      const preloader = document.getElementById('preloader');
+      if (preloader) preloader.style.display = 'none';
+      
+      // Create stars
+      const starsContainer = document.getElementById('stars');
+      for (let i = 0; i < 150; i++) {
+        const star = document.createElement('div');
+        star.className = 'star';
+        star.style.left = Math.random() * 100 + '%';
+        star.style.top = Math.random() * 100 + '%';
+        star.style.width = Math.random() * 3 + 1 + 'px';
+        star.style.height = star.style.width;
+        star.style.animationDelay = Math.random() * 2 + 's';
+        star.style.animationDuration = (Math.random() * 2 + 1) + 's';
+        starsContainer.appendChild(star);
+      }
+      
+      // Create code rain
+      const codeRain = document.getElementById('code-rain');
+      const codeSnippets = [
+        'import geopandas',
+        'SELECT * FROM',
+        'def analyze():',
+        'EPSG:4326',
+        'layer.buffer()',
+        'PostGIS',
+        'coordinates[]',
+        'raster.clip()',
+        'for geom in:',
+        'ST_Transform',
+        'QgsProject',
+        'arcpy.env',
+        'numpy.array',
+        'shapefile.shp',
+        'WGS84',
+        'utm_zone',
+        'pixel_size',
+        'vector_layer',
+        'spatial_ref',
+        'topology'
+      ];
+      
+      for (let i = 0; i < 20; i++) {
+        const codeLine = document.createElement('div');
+        codeLine.className = 'code-line';
+        codeLine.textContent = codeSnippets[Math.floor(Math.random() * codeSnippets.length)];
+        codeLine.style.left = Math.random() * 100 + '%';
+        codeLine.style.animationDelay = Math.random() * 5 + 's';
+        codeLine.style.animationDuration = (Math.random() * 5 + 5) + 's';
+        codeRain.appendChild(codeLine);
+      }
+      
+      // Animate coordinates
+      const coordsEl = document.getElementById('coordinates');
+      const coords = [
+        { lat: 49.0350, lon: 2.0780, name: 'Pontoise' },
+        { lat: 48.8566, lon: 2.3522, name: 'Paris' },
+        { lat: 6.4969, lon: 2.6289, name: 'Porto-Novo' },
+        { lat: 7.1881, lon: 1.9906, name: 'Abomey' }
+      ];
+      let coordIndex = 0;
+      
+      setInterval(() => {
+        coordIndex = (coordIndex + 1) % coords.length;
+        const c = coords[coordIndex];
+        coordsEl.textContent = `LAT: ${c.lat.toFixed(4)}° ${c.lat > 0 ? 'N' : 'S'} | LON: ${c.lon.toFixed(4)}° ${c.lon > 0 ? 'E' : 'W'} // ${c.name}`;
+      }, 2000);
+      
+      // Hide intro after animation
+      setTimeout(() => {
+        const intro = document.getElementById('intro-animation');
+        intro.classList.add('fade-out');
+        
+        // Remove from DOM after fade
+        setTimeout(() => {
+          intro.remove();
+        }, 800);
+      }, 5000);
+    })();
+  </script>
 
 </body>
 
