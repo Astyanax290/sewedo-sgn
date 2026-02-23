@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://astyanax290.github.io/sewedo-sgn/sitemap.xml
+Host: https://astyanax290.github.io/sewedo-sgn/
