@@ -103,6 +103,11 @@
       display: block;
       cursor: pointer;
     }
+	.portfolio-card-link {
+	  display: block; /* pour que l’<a> prenne toute la largeur */
+	  color: inherit; /* conserve la couleur du texte actuelle */
+	  text-decoration: none; /* enlève le soulignement */
+	}
     .portfolio-img-link:hover .portfolio-img img {
       transform: scale(1.05);
       transition: transform 0.3s ease;
@@ -177,23 +182,23 @@
 
           <div class="row gy-4 isotope-container" data-aos="fade-up" data-aos-delay="300">
             
-            <!-- Projet 1: SIG et Programmation -->
-            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-sig filter-programmation">
-              <div class="portfolio-card">
-                <a href="../portfolio-details/ahp-analysis/" class="portfolio-img-link">
-                  <div class="portfolio-img">
-                    <img src="../assets/img/portfolio/portfolio-1.webp" alt="Projet SIG" class="img-fluid">
-                  </div>
-                </a>
-                <div class="portfolio-info">
-                  <h4>Un plugin QGIS pour l'AHP</h4>
-                  <p>Analyse multicritère hiérarchique</p>
-                  <div class="portfolio-tags">
-                    <span>SIG</span>
-                  </div>
-                </div>
-              </div>
-            </div>
+			<!-- Projet 1: SIG et Programmation -->
+			<div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-sig filter-programmation">
+			  <a href="../portfolio-details/ahp-analysis/" class="portfolio-card-link">
+				<div class="portfolio-card">
+				  <div class="portfolio-img">
+					<img src="../assets/img/portfolio/portfolio-1.webp" alt="Projet SIG" class="img-fluid">
+				  </div>
+				  <div class="portfolio-info">
+					<h4>Un plugin QGIS pour l'AHP</h4>
+					<p>Analyse multicritère hiérarchique</p>
+					<div class="portfolio-tags">
+					  <span>SIG</span>
+					</div>
+				  </div>
+				</div>
+			  </a>
+			</div>
 
             <!-- Projet 2: Cartographie -->
             <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-cartographie">
