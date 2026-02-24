@@ -1,0 +1,7 @@
+title: Sewedo GNANSOUNOU
+description: Portfolio de Sewedo GNANSOUNOU - Géomaticien & Développeur SIG
+url: "https://astyanax290.github.io"
+baseurl: "/sewedo-sgn"
+
+plugins:
+  - jekyll-sitemap
