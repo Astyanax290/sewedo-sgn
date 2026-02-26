@@ -213,7 +213,7 @@
               <div class="article-meta" data-testid="article-meta">
                 <span class="project-badge" data-testid="article-badge">Réalisations SIG</span>
                 <div class="meta-item" data-testid="article-meta-date"><i class="bi bi-calendar3"></i> Février 2026</div>
-                <div class="meta-item" data-testid="article-meta-read"><i class="bi bi-clock"></i> Lecture 6 min</div>
+                <div class="meta-item" data-testid="article-meta-read"><i class="bi bi-clock"></i> Lecture 8 min</div>
                 <div class="meta-item" data-testid="article-meta-location"><i class="bi bi-geo-alt"></i> France</div>
               </div>
 
@@ -228,21 +228,53 @@
 			  <p>C’est précisément pour ça qu’ont été développées les méthodes d’aide à la décision multicritère. Parmi elles, l'Analytic Hierarchy Process (AHP), 
 			  mis au point par Thomas L. Saaty occupe une place majeure. Sa robustesse conceptuelle et sa capacité à intégrer des critères qualitatifs et quantitatifs expliquent son usage dans 
 			  de nombreux domaines.</p>
-			  <p>Lors de la rédaction de <span style="color: #0000ff;"><a href="https://www.master-geomatique.org/component/fabrik/details/7/391-lamenagement-numerique-du-territoire-francilien-face-aux-contraintes-territoriales-reglementaires-et-sociales-analyse-du-deploiement-des-antennes-relais-de-telephonie-mobile-par-une-approche-multicritere" style="color: #0000ff;">mon mémoire de master 1</a></span>, 
+			  <p>Lors de la rédaction de <span style="color: #6ec1e4;"><a href="https://www.master-geomatique.org/component/fabrik/details/7/391-lamenagement-numerique-du-territoire-francilien-face-aux-contraintes-territoriales-reglementaires-et-sociales-analyse-du-deploiement-des-antennes-relais-de-telephonie-mobile-par-une-approche-multicritere" style="color: #4FC3F7; text-decoration: underline;">mon mémoire de master 1</a></span>, 
 			  l’absence d’un outil SIG dédié à l’AHP a constitué une limite importante. Les calculs des matrices de comparaison, des poids et des indices de cohérence ont dû être 
 			  réalisés manuellement, puis réintégrés dans QGIS pour produire des cartes d’aide à la décision. Cette approche, bien que méthodologiquement valide, s’est révélée chronophage 
 			  et peu automatisée. Le plugin présenté dans cet article a été conçu précisément pour répondre à cette lacune.</p>
 			  <p>Tout d'abord, voici quelques cartes de décision issues d'analyse multicritère AHP</p>
-              <div class="row g-2" data-testid="article-gallery">
-                <div class="col-md-15">
-                  <img src="../../assets/img/portfolio/Carte AHP Versailles.jpg" alt="AHP antennes relais" class="img-fluid" data-testid="article-gallery-image-1">
-				  <figcaption data-testid="article-figure-caption-1">Carte pour l'implantation des antennes relais à Versailles issue de mon mémoire de M1 (Voir détails <a href="https://www.master-geomatique.org/component/fabrik/details/7/391-lamenagement-numerique-du-territoire-francilien-face-aux-contraintes-territoriales-reglementaires-et-sociales-analyse-du-deploiement-des-antennes-relais-de-telephonie-mobile-par-une-approche-multicritere">ici</a>)</figcaption>
-                </div>
-                <div class="col-md-15">
-                  <img src="../../assets/img/portfolio/Culture_ble_capt.png" alt="Culture ble capt" class="img-fluid" data-testid="article-gallery-image-2">
-				  <figcaption data-testid="article-figure-caption-2"> Mémoire consultable <a href="https://www.researchgate.net/publication/289659785_Les_methodes_multi-criteres_pour_analyser_les_aptitudes_des_terres_agricoles_le_cas_du_ble_tendre_en_Languedoc-Roussillon_analyse_avec_la_methode_AHP#pf1c">ici</a></figcaption>
-                </div>
-              </div>
+				<div class="row g-2" data-testid="article-gallery">
+
+				  <div class="col-md-15">
+					<a href="../../assets/img/portfolio/Carte AHP Versailles.jpg"
+					   class="glightbox"
+					   data-gallery="article-gallery">
+					  <img src="../../assets/img/portfolio/Carte AHP Versailles.jpg"
+						   alt="AHP antennes relais"
+						   class="img-fluid"
+						   style="cursor: zoom-in;"
+						   data-testid="article-gallery-image-1">
+					</a>
+
+					<figcaption data-testid="article-figure-caption-1">
+					  Carte pour l'implantation des antennes relais à Versailles issue de mon mémoire de M1
+					  (Voir détails
+					  <a href="https://www.master-geomatique.org/component/fabrik/details/7/391-lamenagement-numerique-du-territoire-francilien-face-aux-contraintes-territoriales-reglementaires-et-sociales-analyse-du-deploiement-des-antennes-relais-de-telephonie-mobile-par-une-approche-multicritere">
+						ici
+					  </a>)
+					</figcaption>
+				  </div>
+
+				  <div class="col-md-15">
+					<a href="../../assets/img/portfolio/Culture_ble_capt.png"
+					   class="glightbox"
+					   data-gallery="article-gallery">
+					  <img src="../../assets/img/portfolio/Culture_ble_capt.png"
+						   alt="Culture blé capt"
+						   class="img-fluid"
+						   style="cursor: zoom-in;"
+						   data-testid="article-gallery-image-2">
+					</a>
+
+					<figcaption data-testid="article-figure-caption-2">
+					  Mémoire consultable
+					  <a href="https://www.researchgate.net/publication/289659785_Les_methodes_multi-criteres_pour_analyser_les_aptitudes_des_terres_agricoles_le_cas_du_ble_tendre_en_Languedoc-Roussillon_analyse_avec_la_methode_AHP#pf1c">
+						ici
+					  </a>
+					</figcaption>
+				  </div>
+
+				</div>
               <!--<div class="article-quote" data-testid="article-quote">
                 « Une bonne carte ne se contente pas de montrer un territoire : elle raconte une décision à prendre. »
               </div>
@@ -268,10 +300,23 @@
 			<p>La première version du plugin à été publiée le 1<sup>er</sup> janvier 2026 avec uniquement le français comme langue et fonctionnant qu’avec QGIS ≥ 3.0.0 sur Qt5. 
 			Une mise à jour a été effectuée le 30 janvier 2026 afin de proposer une traduction en Anglais et une compatibilité Qt5 et Qt6. Si votre QGIS est en anglais, le plugin s’affiche 
 			automatiquement en Anglais. Idem pour le français. Sinon c’est le français comme langue par défaut.</p>
-			  <figure class="mt-4" data-testid="article-figure-1">
-                <img src="../../assets/img/portfolio/1.png" alt="Analyse spatiale et données urbaines" class="img-fluid" data-testid="article-figure-image-1">
-                <figcaption data-testid="article-figure-caption-3">Le plugin depuis l'interface des extensions sur Qgis</figcaption>
-              </figure>
+				<figure class="mt-4" data-testid="article-figure-1">
+
+				  <a href="../../assets/img/portfolio/1.png"
+					 class="glightbox"
+					 data-gallery="plugin-interface">
+					<img src="../../assets/img/portfolio/1.png"
+						 alt="Analyse spatiale et données urbaines"
+						 class="img-fluid"
+						 style="cursor: zoom-in;"
+						 data-testid="article-figure-image-1">
+				  </a>
+
+				  <figcaption data-testid="article-figure-caption-3">
+					Le plugin depuis l'interface des extensions sur Qgis
+				  </figcaption>
+
+				</figure>
 
               <h2 data-testid="article-section-2-title">2. Comment ça marche ?</h2>
 			<p>- Définition des critères : Vous commencez par lister vos critères de décision et vous associez à chacun une couche raster correspondante. 
@@ -284,19 +329,63 @@
 			<p>- Génération de la carte de décision : Une fois les poids validés, le plugin combine automatiquement toutes vos couches raster selon ces 
 			poids pour produire une carte synthétique de décision. Cette carte finale vous montre visuellement quelles zones sont les plus favorables (ou les plus à risque) selon 
 			l'ensemble de vos critères.</p>
-				<table style="width: 410px; height: 300px;">
-					<tbody>
-						<tr>
-							<td><img src="../../assets/img/portfolio/V2.PNG" alt="plugin ahp" width="410" height="300" /></td>
-							<td><img src="../../assets/img/portfolio/V3.PNG" alt="plugin ahp" width="410" height="300" /></td>
-						</tr>
-						<tr>
-							<td><img src="../../assets/img/portfolio/V4.PNG" alt="plugin ahp" width="410" height="300" /></td>
-							<td><img src="../../assets/img/portfolio/V5.PNG" alt="plugin ahp" width="410" height="300" /></td>
-						</tr>
-					</tbody>
-					<figcaption data-testid="article-figure-caption-4">Les étapes de l'exécution du plugin</figcaption>
-				</table>	
+				
+				<div class="row g-2" data-testid="article-gallery">
+
+				  <figcaption data-testid="article-figure-caption-4" style="color: #6ec1e4;">
+					Les étapes de l'exécution du plugin
+				  </figcaption>
+
+				  <div class="col-md-15">
+					<a href="../../assets/img/portfolio/V2.PNG"
+					   class="glightbox"
+					   data-gallery="plugin-steps">
+					  <img src="../../assets/img/portfolio/V2.PNG"
+						   alt="plugin ahp"
+						   class="img-fluid"
+						   style="cursor: zoom-in;"
+						   data-testid="article-gallery-image-1">
+					</a>
+				  </div>
+
+				  <div class="col-md-15">
+					<a href="../../assets/img/portfolio/V3.PNG"
+					   class="glightbox"
+					   data-gallery="plugin-steps">
+					  <img src="../../assets/img/portfolio/V3.PNG"
+						   alt="plugin ahp"
+						   class="img-fluid"
+						   style="cursor: zoom-in;"
+						   data-testid="article-gallery-image-2">
+					</a>
+				  </div>
+
+				  <div class="col-md-15">
+					<a href="../../assets/img/portfolio/V4.PNG"
+					   class="glightbox"
+					   data-gallery="plugin-steps">
+					  <img src="../../assets/img/portfolio/V4.PNG"
+						   alt="plugin ahp"
+						   class="img-fluid"
+						   style="cursor: zoom-in;"
+						   data-testid="article-gallery-image-3">
+					</a>
+				  </div>
+
+				  <div class="col-md-15">
+					<a href="../../assets/img/portfolio/V5.PNG"
+					   class="glightbox"
+					   data-gallery="plugin-steps">
+					  <img src="../../assets/img/portfolio/V5.PNG"
+						   alt="plugin ahp"
+						   class="img-fluid"
+						   style="cursor: zoom-in;"
+						   data-testid="article-gallery-image-4">
+					</a>
+				  </div>
+
+				</div>			
+				
 				<p>&nbsp; &nbsp;&nbsp;</p>
 			   <h2 data-testid="article-section-3-title">3. À quoi peut-il servir ?</h2>
 			<p>Même si le développement initial a été motivé par une étude sur l'implantation d'antennes relais de téléphonie mobile, le champ d'application reste très large. 
@@ -308,8 +397,8 @@
 				<li style="text-align: justify;">La gestion des risques (cartographier la vulnérabilité d'un territoire aux inondations, aux glissements de terrain ou aux risques industriels...)</li>
 				<li>etc.</li>
 			</ul>
-			<p><span style="color: #0000ff;"><a href="https://github.com/Astyanax290/ahp_analysis" style="color: #0000ff;"><span style="font-size: 18pt;">Dépôt de code</span></a></span></p>
-			<p><span style="color: #0000ff;"><a href="https://plugins.qgis.org/plugins/ahp_analysis/#plugin-about" style="color: #0000ff;"><span style="font-size: 18pt;">Publication dans le dépôt officiel des extensions QGIS</span></a></span></p>
+			<p><span style="color: #6ec1e4;"><a href="https://github.com/Astyanax290/ahp_analysis" style="color: #4FC3F7; text-decoration: underline;"><span style="font-size: 18pt;">Dépôt de code</span></a></span></p>
+			<p><span style="color: #6ec1e4;"><a href="https://plugins.qgis.org/plugins/ahp_analysis/#plugin-about" style="color: #4FC3F7; text-decoration: underline;"><span style="font-size: 18pt;">Publication dans le dépôt officiel des extensions QGIS</span></a></span></p>
 			<p>&nbsp;</p>
 
 			  <!--<ul class="feature-list" data-testid="article-method-list">
@@ -340,7 +429,6 @@
                 <a href="../../portfolio/" class="btn-view-project">Retour au Portfolio</a>
                 <a href="../../contact/" class="btn-next-project">Me contacter <i class="bi bi-arrow-right"></i></a>
               </div>
-            </article>
           </div>
         </div>
       </div>
