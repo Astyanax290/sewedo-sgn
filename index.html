@@ -6,7 +6,7 @@
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
   <title>Sewedo GNANSOUNOU - Géomaticien</title>
   <meta name="description" content="Portfolio de Sewedo GNANSOUNOU, Géomaticien spécialisé en SIG, télédétection et analyse de données spatiales">
-  <meta name="keywords" content="Géomaticien, SIG, QGIS, ArcGIS, cartographie, données spatiales">
+  <meta name="keywords" content="Géomaticien, SIG, QGIS, ArcGIS, cartographie, données spatiales, Astyanax, Gnansounou, Sewedo, Portfolio géomatique">
   <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
   <meta name="googlebot" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
   <meta name="author" content="Sewedo GNANSOUNOU">
@@ -15,14 +15,14 @@
   <meta property="og:description" content="Portfolio de Sewedo GNANSOUNOU, Géomaticien spécialisé en SIG, télédétection et analyse de données spatiales">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://astyanax290.github.io/sewedo-sgn/">
-  <meta property="og:image" content="https://astyanax290.github.io/sewedo-sgn/assets/img/profile/profile-square-1.webp">
+  <meta property="og:image" content="https://astyanax290.github.io/sewedo-sgn/assets/img/profile/profile_1.webp">
   <meta property="og:image:alt" content="Portrait de Sewedo GNANSOUNOU">
   <meta property="og:site_name" content="Sewedo GNANSOUNOU">
   <meta property="og:locale" content="fr_FR">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Sewedo GNANSOUNOU - Géomaticien">
   <meta name="twitter:description" content="Portfolio de Sewedo GNANSOUNOU, Géomaticien spécialisé en SIG, télédétection et analyse de données spatiales">
-  <meta name="twitter:image" content="https://astyanax290.github.io/sewedo-sgn/assets/img/profile/profile-square-1.webp">
+  <meta name="twitter:image" content="https://astyanax290.github.io/sewedo-sgn/assets/img/profile/profile_1.webp">
   <meta name="twitter:image:alt" content="Portrait de Sewedo GNANSOUNOU">
   <script type="application/ld+json">
     {
@@ -45,7 +45,7 @@
           "name": "Sewedo GNANSOUNOU",
           "jobTitle": "Géomaticien",
           "url": "https://astyanax290.github.io/sewedo-sgn/",
-          "image": "https://astyanax290.github.io/sewedo-sgn/assets/img/profile/profile-square-1.webp",
+          "image": "https://astyanax290.github.io/sewedo-sgn/assets/img/profile/profile_1.webp",
           "sameAs": [
             "https://www.linkedin.com/in/sewedo-g-aa8578195/",
             "https://github.com/Astyanax290"
@@ -55,7 +55,8 @@
             "Cartographie",
             "Télédétection",
             "Analyse de données spatiales",
-            "Géomatique"
+            "Géomatique",
+			"Sewedo"
           ]
         }
       ]
@@ -266,17 +267,6 @@
       100% { transform: translateY(100vh); opacity: 0; }
     }
     
-    /* Coordinates display */
-    .coordinates {
-      position: absolute;
-      bottom: 20px;
-      left: 50%;
-      transform: translateX(-50%);
-      font-family: 'Fira Code', monospace;
-      font-size: 14px;
-      color: rgba(59, 130, 246, 0.8);
-      text-shadow: 0 0 10px rgba(59, 130, 246, 0.5);
-    }
     
     /* Text content */
     .intro-text {
@@ -415,11 +405,6 @@
     <!-- Code Rain -->
     <div class="code-rain" id="code-rain"></div>
     
-    <!-- Coordinates -->
-    <div class="coordinates" id="coordinates">
-      LAT: 49.0350° N | LON: 2.0780° E
-    </div>
-    
     <!-- Text -->
     <div class="intro-text">
       <h1>SEWEDO GNANSOUNOU</h1>
@@ -489,7 +474,7 @@
           <div class="col-lg-6 order-1 order-lg-2">
             <div class="hero-image" data-aos="zoom-in" data-aos-delay="300">
               <div class="image-wrapper">
-                <img src="assets/img/profile/profile-square-1.webp" alt="Astyanax GNANSOUNOU" class="img-fluid">
+                <img src="assets/img/profile/profile_1.webp" alt="Astyanax GNANSOUNOU" class="img-fluid">
                 <div class="floating-elements">
                   <div class="floating-card design" data-aos="fade-left" data-aos-delay="700">
                     <i class="bi bi-geo-alt"></i>
@@ -645,19 +630,6 @@
         codeRain.appendChild(codeLine);
       }
       
-      // Animate coordinates
-      const coordsEl = document.getElementById('coordinates');
-      const coords = [
-        { lat: 49.0350, lon: 2.0780, name: 'Pontoise' },
-        { lat: 48.8566, lon: 2.3522, name: 'Paris' }
-      ];
-      let coordIndex = 0;
-      
-      setInterval(() => {
-        coordIndex = (coordIndex + 1) % coords.length;
-        const c = coords[coordIndex];
-        coordsEl.textContent = `LAT: ${c.lat.toFixed(4)}° ${c.lat > 0 ? 'N' : 'S'} | LON: ${c.lon.toFixed(4)}° ${c.lon > 0 ? 'E' : 'W'} // ${c.name}`;
-      }, 2000);
       
       // Hide intro after animation
       setTimeout(() => {
